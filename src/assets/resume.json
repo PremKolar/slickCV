@@ -1,0 +1,321 @@
+{
+  "basics": {
+    "name": "Nikolaus Koopmann",
+    "label": "Developper",
+    "picture": "TODO",
+    "email": "nikolauskoopmann@gmail.com",
+    "website": "nikoop.de",
+    "summary": "CV and info",
+    "location": {
+      "city": "Hamburg",
+      "countryCode": "DE",
+      "region": "Hamburg"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "TODO",
+        "url": "TODO"
+      },
+      {
+        "network": "Github",
+        "username": "PremKolar",
+        "url": "https://github.com/PremKolar"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "Nikolaus Koopmann",
+        "url": "https://www.linkedin.com/in/nikolaus-koopmann-447444107/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "STK - Hamburg",
+      "position": "Frontend Dev.",
+      "website": "stk-hamburg.de",
+      "startDate": "2020-12",
+      "endDate": "2030-01",
+      "summary": "Design and implement fresh web-based frontend for legacy software.",
+      "technologies": ["Typescript", "Vue", "Html", "CSS", "Lisp", "Vuex", "NodeJS"]
+    },
+    {
+      "company": "KLIWAS, Max-Planck-Institut",
+      "position": "Research Assistant",
+      "website": "https://www.kliwas.de/KLIWAS/EN/01_About_Kliwas/about_kliwas_node.html",
+      "startDate": "2010-10",
+      "endDate": "2011-06",
+      "summary": "Visualization of climate-model output.",
+      "highlights": [
+      ],
+      "technologies": ["Python", "Bash", "Linux"]
+    },
+    {
+      "company": "Institut für Meereskunde",
+      "position": "Research Assistant",
+      "website": "https://www.ifm.uni-hamburg.de/en/institute/staff/gade.html",
+      "startDate": "2011-08",
+      "endDate": "2012-08",
+      "summary": "Calculation of carbon exchange rates from wind-scatterometry products.",
+      "technologies": ["Python", "Matlab", "Latex", "Bash", "cron", "Linux"]
+    },
+    {
+      "company": "MSM28 on Maria S. Merian",
+      "position": "Research Assistant",
+      "website": "https://www.ldf.uni-hamburg.de/en/merian/wochenberichte/wochenberichte-merian/msm26-msm28/msm28-scr.pdf",
+      "startDate": "2013-05",
+      "endDate": "2013-06",
+      "summary": "Scientific Nautical Voyage.",
+      "technologies": ["Matlab"]
+    },
+    {
+      "company": "Dep. of Theoretical Oceanography, ZMAW",
+      "position": "Research Assistant",
+      "website": "https://www.ifm.uni-hamburg.de/workareas/theoretical.html",
+      "startDate": "2013-11",
+      "endDate": "2015-05",
+      "summary": "Design and implementation of an ocean-eddy-detection and -tracking algorithm.",
+      "technologies": ["Matlab", "Bash", "Linux", "Latex"]
+    },
+    {
+      "company": "Dep. of Theoretical Oceanography, ZMAW",
+      "position": "Research Associate",
+      "website": "https://www.ifm.uni-hamburg.de/workareas/theoretical.html",
+      "startDate": "2015-06",
+      "endDate": "2015-08",
+      "summary": "Collaboration on the paper 'Comparing isopycnal eddy diffusivities in the Southern Ocean with predictions from linear theory'. (limited to 3 months)",
+      "link": "https://www.sciencedirect.com/science/article/abs/pii/S1463500315001389",
+      "technologies": ["Matlab", "Bash", "Linux", "Latex"]
+    },
+    {
+      "company": "Lufthansa Technik, Dep. Engine Engineering",
+      "position": "Matlab Developer",
+      "website": "https://www.lufthansa-technik.com/aircraft-engines",
+      "startDate": "2018-03",
+      "endDate": "2020-09",
+      "highlights": [
+        "Maintenance of internal software",
+        "Full-Stack development of new tools",
+        "Procedural → OOP rewriting/refactoring"
+      ],
+      "technologies": ["Matlab", "Oracle Database"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Helene-Lange-Gymnasium",
+      "studyType": "Abitur",
+      "startDate": "1995",
+      "endDate": "2005",
+      "info": "LK Mathe/Physik"
+    },
+    {
+      "institution": "Uni Hamburg",
+      "area": "Oceanography",
+      "studyType": "B.Sc.",
+      "minor": "Meteorology",
+      "startDate": "2008",
+      "endDate": "2011",
+      "grade": "1.99",
+      "thesis": "Numerical Reconstruction of the Stommel/Munk Approach to Explain the Westward Intensification of Wind-Driven Ocean Currents",
+      "thesisLink": "https://drive.google.com/file/d/0B1wN06WMAqAqWHBtRlBWUGd6SVU/view"
+    },
+    {
+      "institution": "Uni Hamburg",
+      "area": "Physical Oceanography",
+      "studyType": "M.Sc.",
+      "minor": "Computing in Science",
+      "startDate": "2011",
+      "endDate": "2015",
+      "grade": "1.21",
+      "thesis": "A Global Analysis of Mesoscale Eddy Dynamics via a Surface-Signature-Based Tracking Algorithm",
+      "thesisLink": "https://drive.google.com/file/d/0B1wN06WMAqAqd3dIQWFuRjB5X2s/view"
+    },
+    {
+      "institution": "Uni Hamburg",
+      "area": "Computing in Science",
+      "studyType": "B.Sc.",
+      "minor": "Physics",
+      "startDate": "2014",
+      "endDate": "2019",
+      "grade": "not finished"
+    },
+    {
+      "institution": "University of Hawai’i at Manoa",
+      "area": "Exchange Semester",
+      "minor": "Physics",
+      "startDate": "2012-09",
+      "endDate": "2013-02"
+    }
+  ],
+  "projects": [
+    {
+      "what": "Shared Rent App",
+      "summary": "Published my second Android app",
+      "link": "https://play.google.com/store/apps/details?id=com.sr.sharedrent",
+      "startDate": "2020-11-02",
+      "endDate": "2020-12-11",
+      "technologies": ["Java","Room","Android"]
+    },
+    {
+      "what": "Kitems App",
+      "summary": "Published my first Android app",
+      "link": "https://play.google.com/store/apps/details?id=com.nk.com.nk.tokitelist",
+      "startDate": "2020-10-25",
+      "endDate": "2020-11-01",
+      "technologies": ["Kotlin","Room"]
+    },
+    {
+      "what": "Sudoku Solver",
+      "summary": "Wrote a Sudoku Solver",
+      "link": "https://nikoop.de/sudokusolver",
+      "startDate": "2020-10-18",
+      "endDate": "2020-10-20",
+      "technologies": ["JS", "React", "CSS", "Html","JSX"]
+    },
+    {
+      "what": "Fleamarket Software",
+      "summary": "Helped a friend make his business simpler.",
+      "startDate": "2020-09-21",
+      "endDate": "2020-10-05",
+      "technologies": ["Java", "Swing"]
+    },
+    {
+      "what": "Creating this webpage",
+      "summary": "...learning web dev...",
+      "startDate": "2020-10-07",
+      "endDate": "2020-10-14",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "GraphQL",
+        "Gatsby"
+      ]
+    },
+    {
+      "what": "Open-Source Contribution",
+      "summary": "Improved JabRef's DOI-detection.",
+      "link": "https://github.com/JabRef/jabref/pull/6920",
+      "startDate": "2020-09-21",
+      "endDate": "2020-10-01",
+      "technologies": [
+        "Java"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "To-Do App & Clean Architecture -Android Development - Kotlin ",
+      "startDate": "2020-10-20",
+      "endDate": "2020-10-27",
+      "technologies": ["Kotlin", "Android"],
+      "link": "https://www.udemy.com/course/to-do-app-clean-architecture-android-development-kotlin/",
+      "platform": "Udemy"
+    },    
+    {
+      "name": "Spring & Hibernate for Beginners",
+      "startDate": "2020-10-10",
+      "endDate": "2020-11-01",
+      "technologies": ["Java", "Hibernate", "Spring", "REST", "Spring Boot", "Thymeleaf"],
+      "link": "https://www.udemy.com/course/spring-hibernate-tutorial/",
+      "platform": "Udemy"
+    },    
+    {
+      "name": "Getting started with JavaScript, V2",
+      "startDate": "2020-10-18",
+      "endDate": "2020-10-18",
+      "technologies": ["JS"],
+      "link": "https://frontendmasters.com/courses/getting-started-javascript-v2/wrapping-up/",
+      "platform": "Frontend Masters"
+    },    
+    {
+      "name": "Intro to Web Dev V2",
+      "startDate": "2020-10-15",
+      "endDate": "2020-10-16",
+      "technologies": ["JS", "Html", "CSS", "AJAX", "Node.js", "git"],
+      "link": "https://frontendmasters.com/courses/web-development-v2/",
+      "platform": "Frontend Masters"
+    },
+    {
+      "name": "Scientific Computing I",
+      "startDate": "2012",
+      "technologies": ["FORTRAN", "OpenMp/MPI"],
+      "platform": "Uni Hamburg"
+    },
+    {
+      "name": "Scientific Computing IV",
+      "startDate": "2013",
+      "technologies": ["C", "OpenMp/MPI"],
+      "platform": "Uni Hamburg"
+    },
+    {
+      "name": "Software Development I",
+      "startDate": "2014",
+      "technologies": ["Java", "git"],
+      "platform": "Uni Hamburg"
+    },
+    {
+      "name": "Software Development II",
+      "startDate": "2017",
+      "technologies": ["Java", "git"],
+      "platform": "Uni Hamburg"
+    },    
+    {
+      "name": "Databases",
+      "startDate": "2017",
+      "technologies": ["SQL"],
+      "platform": "Uni Hamburg"
+    },    
+    {
+      "name": "Algorithms and Data-Structures",
+      "startDate": "2017",
+      "technologies": [],
+      "platform": "Uni Hamburg"
+    },    
+    {
+      "name": "Ocean Modelling",
+      "startDate": "2010",
+      "technologies": ["FORTRAN","Python"],
+      "platform": "Uni Hamburg"
+    },    
+    {
+      "name": "numerical tracer transport simulation",
+      "startDate": "2010",
+      "technologies": ["Matlab"],
+      "platform": "Uni Hamburg"
+    },    
+    {
+      "name": "open source scripting for geoscientific data analysis",
+      "startDate": "2009",
+      "technologies": ["Python"],
+      "platform": "Uni Hamburg"
+    },    
+    {
+      "name": "numerical methods in geo-sciences",
+      "startDate": "2009",
+      "technologies": ["FORTRAN", "Linux"],
+      "platform": "Uni Hamburg"
+    },    
+    {
+      "name": "data handling and programming in geo-sciences",
+      "startDate": "2009",
+      "technologies": ["Matlab","Python","Linux","Bash"],
+      "platform": "Uni Hamburg"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Technical",
+      "keywords": ["Programming"]
+    },
+    {
+      "name": "Personal",
+      "keywords": ["Surfing", "Kite Surfing", "Snowboarding", "Skateboarding"]
+    }
+  ],
+  "meta": {
+    "theme": "elegant"
+  }
+}
