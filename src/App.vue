@@ -6,7 +6,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import resumeData from "@/assets/resume.json";
-import SlickCV from "@/components/SlickCV.vue";
+import SlickCV from "@/components/slickCV/SlickCV.vue";
 
 export default defineComponent({
   name: "App",
