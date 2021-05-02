@@ -22,7 +22,7 @@ export default function useResumeToTimeline(resume: Ref<Resume>) {
   const workItemToTimeLineItem = (work: WorkItem): TimeLineItem => {
     const res: TimeLineItem = resumeItemToTimeLineItem(work);
     res.icon = "briefcase";
-    res.color = "yellow";
+    res.color = "darkorange";
     res.title = work.position;
     res.subtitle = work.company;
     res.text = work.summary;
@@ -81,7 +81,7 @@ export default function useResumeToTimeline(resume: Ref<Resume>) {
         res.push(fun(arr[i]));
       }
     }
-    return res.sort((a, b) => a.from.getTime() - b.from.getTime());
+    return res.sort((a, b) => -a.from.getTime() + b.from.getTime());
   });
 
   return {
