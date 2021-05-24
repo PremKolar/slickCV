@@ -71,6 +71,9 @@ export default defineComponent({
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   /*position: relative;*/
 }
+
+
+
 .cell {
   background-color: #e5fcc2;
   border-radius: 0;
@@ -143,7 +146,7 @@ export default defineComponent({
 
 .nugget {
   text-transform: lowercase;
-  background-color: #8dd9b5;
+  background-color: #45ada8;
   border-radius: 0.125rem;
   padding: 0.25rem 0.75rem;
   font-size: 0.875rem;
@@ -151,8 +154,8 @@ export default defineComponent({
   --text-opacity: 1;
   color: #f7fafc;
   color: rgba(247, 250, 252, var(--text-opacity));
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
+  /*margin-right: 0.5rem;*/
+  /*margin-bottom: 0.5rem;*/
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
@@ -163,7 +166,10 @@ export default defineComponent({
 }
 
 .technoBox {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, max-content));
+  justify-content: center;
+  grid-gap: 1rem;
 }
 
 .iconCase {
@@ -192,4 +198,19 @@ export default defineComponent({
   height: 250px;
   margin-bottom: 10px;
 }
+
+
+@media all and (max-width: 900px) {
+  .shell {
+    width: 420px;
+  }
+}
+@media all and (max-width: 419px) {
+  .shell {
+    width: 300px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 </style>
