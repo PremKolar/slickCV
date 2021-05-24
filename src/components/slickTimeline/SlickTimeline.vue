@@ -1,38 +1,66 @@
 <template>
   <div class="timeline">
     <TimeLineCell
-      v-for="item in items"
-      ref="cells"
+      v-for="(item, i) in items"
+      :ref="
+        (el) => {
+          cells[i] = el;
+        }
+      "
       :key="item.title"
       :item="item"
+      :show="show[i]"
+      :id="i"
     ></TimeLineCell>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onBeforeUpdate, onMounted, ref } from "vue";
 import { TimeLineItem } from "@/components/slickTimeline/types";
 import TimeLineCell from "@/components/slickTimeline/TimeLineCell.vue";
 export default defineComponent({
   name: "SlickTimeline",
   components: { TimeLineCell },
   props: { items: { type: Object as () => TimeLineItem[], required: true } },
-  // created() {
-  //   window.addEventListener("scroll", this.handleScroll);
-  // },
-  // unmounted() {
-  //   window.removeEventListener("scroll", this.handleScroll);
-  // },
-  // methods: {
-  //   handleScroll() {
-  //     (this.$refs
-  //       .cell as typeof TimeLineCell).forEach((cell: typeof TimeLineCell) =>
-  //       cell.recalcVisibility()
-  //     );
-  //   },
-  // },
-  // setup(props) {
-  // },
+  setup(props) {
+    const show = ref(Array(props.items.length).fill(false));
+    const cells = ref([]);
+    const callback = (
+      intersectionOBserverEntryArray: IntersectionObserverEntry[]
+    ) => {
+      intersectionOBserverEntryArray.forEach(
+        (entry: IntersectionObserverEntry) => {
+          const id = Number(entry.target.id);
+          const intersects: boolean = entry.isIntersecting;
+          show.value[id] = intersects;
+        }
+      );
+    };
+
+    let options = {
+      root: document.querySelector("#scrollArea"),
+      rootMargin: "5px",
+      threshold: 0.2,
+    };
+
+    let observer = new IntersectionObserver(callback, options);
+
+    onMounted(() => {
+      for (let i = 0; i < props.items.length; i++) {
+        const target = cells.value[i];
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        observer.observe(target.getRootElem());
+      }
+    });
+
+    onBeforeUpdate(() => {
+      cells.value = [];
+    });
+
+    return { cells, show };
+  },
 });
 </script>
 

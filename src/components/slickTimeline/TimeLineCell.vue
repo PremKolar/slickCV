@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="shell">
+  <div ref="rootElement" class="rootElem">
+    <div class="shell" v-if="show">
       <div class="iconCase">
         <div class="icon" :style="{ backgroundColor: item.color }">
           <font-awesome-icon
@@ -29,16 +29,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { TimeLineItem } from "@/components/slickTimeline/types";
 
 export default defineComponent({
   name: "TimeLineCell",
   components: {},
-  props: { item: { type: Object as () => TimeLineItem, required: true } },
+  props: {
+    item: { type: Object as () => TimeLineItem, required: true },
+    show: { type: Boolean, required: true },
+  },
 
   computed: {},
   setup(props) {
+    const rootElement = ref(null);
     // const isMounted = ref(false);
     // const visible: any = "visible";
     // onMounted(() => {
@@ -46,9 +50,12 @@ export default defineComponent({
     //     isMounted.value = true;
     //   });
     // });
-    // return { isMounted, visible };
+    return { rootElement };
   },
   methods: {
+    getRootElem() {
+      return this.rootElement;
+    },
     // isInViewport(): "hidden" | "visible" {
     //   if (!this.isMounted) return "visible";
     //   console.log((this.$refs.cell as any).getBoundingClientRect());
@@ -73,15 +80,6 @@ export default defineComponent({
   display: inline-flex;
   width: 700px;
   margin-bottom: 10px;
-  /*position: relative;*/
-}
-.cell {
-  border-radius: 5px;
-  background-color: white;
-  /*position: relative;*/
-  width: 100%;
-  height: 100%;
-  /*margin-right: 50%;*/
   animation: cd-bounce-2 1.6s;
   animation-name: cd-bounce-2;
   animation-duration: 0.6s;
@@ -93,6 +91,15 @@ export default defineComponent({
   animation-play-state: running;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  /*position: relative;*/
+}
+.cell {
+  border-radius: 5px;
+  background-color: white;
+  /*position: relative;*/
+  width: 100%;
+  height: 100%;
+  /*margin-right: 50%;*/
 }
 
 @keyframes cd-bounce-2 {
@@ -173,5 +180,10 @@ export default defineComponent({
   top: 50%;
   margin-left: -12px;
   margin-top: -12px;
+}
+
+.rootElem {
+  height: 250px;
+  margin-bottom: 10px;
 }
 </style>
