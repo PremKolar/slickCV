@@ -11,14 +11,15 @@
       :item="item"
       :show="show[i]"
       :id="i"
+      :indexRatio="i / items.length"
     ></TimeLineCell>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onBeforeUpdate, onMounted, ref } from "vue";
-import { TimeLineItem } from "@/components/slickTimeline/types";
-import TimeLineCell from "@/components/slickTimeline/TimeLineCell.vue";
+import { TimeLineItem } from "@/components/slickCV/slickTimeline/types";
+import TimeLineCell from "@/components/slickCV/slickTimeline/TimeLineCell.vue";
 export default defineComponent({
   name: "SlickTimeline",
   components: { TimeLineCell },
@@ -65,13 +66,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/*.timeline::before {*/
-/*  z-index: -1;*/
-/*  content: "";*/
-/*  background-color: azure;*/
-/*  width: 10px;*/
-/*  height: 100%;*/
-/*  left: 5%;*/
-/*  position: absolute;*/
-/*}*/
+.timeline {
+  /*margin-top: 10em;*/
+}
 </style>

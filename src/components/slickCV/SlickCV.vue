@@ -7,7 +7,7 @@ import { defineComponent } from "vue";
 import { Resume } from "@/components/slickCV/types";
 import { toRefs } from "vue";
 import useResumeToTimeline from "@/components/slickCV/use/useResumeToTimeline";
-import SlickTimeline from "@/components/slickTimeline/SlickTimeline.vue";
+import SlickTimeline from "@/components/slickCV/slickTimeline/SlickTimeline.vue";
 export default defineComponent({
   name: "SlickCV",
   components: { SlickTimeline },

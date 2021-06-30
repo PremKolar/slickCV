@@ -12,4 +12,6 @@ export interface TimeLineItem {
   nuggets: string[];
   from: Date;
   till: Date;
+  fromStr: string;
+  tillStr: string;
 }
