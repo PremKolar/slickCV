@@ -1,16 +1,12 @@
 <template>
   <div ref="rootElement" class="rootElem">
     <div class="shell" v-if="show" :class="{ link: hasLink }" @click="goToLink">
-      <div class="iconCase">
-        <div class="icon" :style="{ backgroundColor: item.color }">
+      <div v-if="largeScreen" class="iconCase">
+        <div class="iconLargeScreen">
           <div class="date dateTop" :style="dateTextColorStyle">
             {{ makeTillString() }}
           </div>
-          <font-awesome-icon
-            class="icon_inner"
-            :icon="item.icon"
-            size="2x"
-          ></font-awesome-icon>
+          <TimeLineCellIcon :item="item"></TimeLineCellIcon>
           <div class="date dateBottom" :style="dateTextColorStyle">
             {{ makeFromString() }}
           </div>
@@ -22,6 +18,23 @@
         @mouseover="showAltTitle()"
         @mouseleave="showNormalTitle()"
       >
+        <div v-if="!largeScreen" class="iconSmallScreen">
+          <div
+            class="dateSmallScreen"
+            style="text-align: right"
+            :style="dateTextColorStyle"
+          >
+            {{ makeFromString() }}
+          </div>
+          <TimeLineCellIcon :item="item"></TimeLineCellIcon>
+          <div
+            class="dateSmallScreen"
+            style="text-align: left"
+            :style="dateTextColorStyle"
+          >
+            {{ makeTillString() }}
+          </div>
+        </div>
         <h2 class="texts title">
           {{ title }}
         </h2>
@@ -50,12 +63,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { TimeLineItem } from "@/components/slickCV/slickTimeline/types";
+import TimeLineCellIcon from "@/components/slickCV/slickTimeline/TimeLineCellIcon.vue";
 
 export default defineComponent({
   name: "TimeLineCell",
-  components: {},
+  components: { TimeLineCellIcon },
   props: {
     indexRatio: { type: Number, required: true },
     item: { type: Object as () => TimeLineItem, required: true },
@@ -63,6 +77,9 @@ export default defineComponent({
   },
 
   computed: {
+    largeScreen(): boolean {
+      return this.width > 1000;
+    },
     hasLink(): boolean {
       return this.item.textLink?.length > 0 ?? false;
     },
@@ -95,7 +112,14 @@ export default defineComponent({
     const rootElement = ref(null);
     const title = ref(props.item.title);
 
-    return { rootElement, title };
+    let windowWidth = ref(window.innerWidth);
+
+    const onWidthChange = () => (windowWidth.value = window.innerWidth);
+    onMounted(() => window.addEventListener("resize", onWidthChange));
+    onUnmounted(() => window.removeEventListener("resize", onWidthChange));
+    const width = computed(() => windowWidth.value);
+
+    return { rootElement, title, width };
   },
   methods: {
     showNormalTitle() {
@@ -206,42 +230,6 @@ export default defineComponent({
   }
 }
 
-.icon {
-  color: white;
-  width: 60px;
-  height: 60px;
-  left: 50%;
-  margin-left: -30px;
-  position: absolute;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
-    0 3px 0 4px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
-    0 3px 0 4px rgba(0, 0, 0, 0.05);
-  animation: iconPlopp 0.6s;
-  top: 40%;
-  /*-ms-transform: translateY(-50%);*/
-  /*transform: translateY(-50%);*/
-}
-
-@keyframes iconPlopp {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
 .technoBox {
   display: flex;
   flex-wrap: wrap;
@@ -270,19 +258,43 @@ export default defineComponent({
   color: black;
 }
 
+.iconInnerCase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+  animation: iconPlopp 0.6s;
+}
+
+.iconLargeScreen {
+  left: 50%;
+  margin-left: -30px;
+  position: absolute;
+  top: 40%;
+}
+
+.iconSmallScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -2.1em;
+  position: relative;
+}
+
 .iconCase {
   position: relative;
   min-height: 250px;
-  /*height: 100%;*/
-  /*margin: 0;*/
-  /*!*position: absolute;*!*/
-  /*top: 50%;*/
-  /*-ms-transform: translateY(-50%);*/
-  /*transform: translateY(-50%);*/
   z-index: 1;
 }
 
-.icon::before {
+.iconLargeScreen::before {
   position: absolute;
   content: "🠑";
   left: -33px;
@@ -293,14 +305,26 @@ export default defineComponent({
 
 .icon_inner {
   fill: white;
-  display: block;
   width: 24px;
   height: 24px;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  margin-left: -12px;
-  margin-top: -12px;
+}
+
+@keyframes iconPlopp {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .date {
@@ -310,6 +334,13 @@ export default defineComponent({
   position: absolute;
   /*color: #2c3e50;*/
   left: -57px;
+}
+
+.dateSmallScreen {
+  font-size: smaller;
+  margin-left: 3em;
+  margin-right: 3em;
+  padding-bottom: 9px;
 }
 
 .dateTop {
@@ -328,6 +359,15 @@ export default defineComponent({
   padding-left: 5em;
   padding-right: 5em;
   align-self: center;
+}
+
+@media all and (max-width: 1000px) {
+  .shell {
+    margin-bottom: 40px;
+  }
+
+  .texts {
+  }
 }
 
 @media all and (max-width: 700px) {
