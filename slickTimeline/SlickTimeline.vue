@@ -11,6 +11,7 @@
       :item="item"
       :show="show[i]"
       :id="i"
+      :indexRatio="i / items.length"
     ></TimeLineCell>
   </div>
 </template>
@@ -64,4 +65,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.timeline {
+  /*margin-top: 10em;*/
+}
+</style>

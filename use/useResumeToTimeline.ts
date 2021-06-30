@@ -16,6 +16,8 @@ export default function useResumeToTimeline(resume: Ref<Resume>) {
     res.nuggets = resume.technologies;
     res.from = new Date(resume.startDate);
     res.till = new Date(resume.endDate);
+    res.fromStr = resume.startDate;
+    res.tillStr = resume.endDate;
     return res as TimeLineItem;
   };
 
@@ -26,20 +28,29 @@ export default function useResumeToTimeline(resume: Ref<Resume>) {
     res.title = work.position;
     res.subtitle = work.company;
     res.text = work.summary;
+    res.textLink = work.website;
     return res;
   };
 
   const eduItemToTimeLineItem = (edu: EduItem): TimeLineItem => {
     const res: TimeLineItem = resumeItemToTimeLineItem(edu);
+
     res.icon = "university";
     res.color = "#547980";
-    res.title = edu.major;
-    res.subtitle = edu.studyType;
-    res.subsubtitle = edu.minor;
     res.text = edu.thesis;
-    res.text2 = "Grade: " + edu.grade;
+    // res.text2 = edu.grade ? "Grade: " + edu.grade : edu.grade;
     res.textLink = edu.thesisLink;
-    res.titleAlt = "Minor: " + edu.minor;
+    res.titleAlt = edu.minor ? "Minor: " + edu.minor : edu.minor;
+
+    if (edu.studyType) {
+      res.title = edu.area ? `${edu.studyType} ${edu.area}` : edu.studyType;
+      // res.subtitle = edu.studyType;
+      res.subsubtitle = edu.grade ? "Grade: " + edu.grade : edu.grade;
+    } else {
+      res.title = edu.area;
+      res.subtitle = edu.institution;
+    }
+
     return res;
   };
 
@@ -58,6 +69,7 @@ export default function useResumeToTimeline(resume: Ref<Resume>) {
     res.icon = "hamsa";
     res.color = "#9DE0AD";
     res.title = proj.what;
+    res.textLink = proj.link;
     res.text = proj.summary;
     return res;
   };
@@ -77,6 +89,7 @@ export default function useResumeToTimeline(resume: Ref<Resume>) {
     for (const key in trafoFunctions) {
       const fun = trafoFunctions[key];
       const arr = (resume.value as any)[key];
+      console.log(`building ${key}-items`);
       for (let i = 0; i < arr.length; i++) {
         res.push(fun(arr[i]));
       }
