@@ -1,6 +1,11 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <SlickCV :resume="resume"></SlickCV>
+  <h1 style="padding-top: 3em">Nikolaus Koopmann</h1>
+  <a
+    href="mailto:nikolauskoopmann@gmail.com"
+    style="text-decoration: none; text-decoration-color: #000f32"
+    >nikolauskoopmann@gmail.com</a
+  >
+  <SlickCV :resume="resume" class="slickcv"></SlickCV>
 </template>
 
 <script lang="ts">
@@ -14,6 +19,7 @@ export default defineComponent({
     SlickCV,
   },
   setup() {
+    console.log("resumeData");
     console.log(resumeData);
     const resume = resumeData;
     return { resume };
@@ -23,12 +29,29 @@ export default defineComponent({
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Lato, Roboto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  background-color: burlywood;
+  /*margin-top: 60px;*/
+  background-color: #594f4f;
+  background-image: linear-gradient(
+    #e5fcc2,
+    #9de0ad,
+    #45ada8,
+    #547980,
+    #594f4f,
+    #000f32
+  );
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: local("Montserrat"), url("./fonts/Montserrat-Regular.ttf");
+}
+
+.slickcv {
+  padding-top: 5em;
 }
 </style>

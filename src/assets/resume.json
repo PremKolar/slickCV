@@ -31,13 +31,13 @@
   },
   "work": [
     {
-      "company": "STK - Hamburg",
-      "position": "Frontend Dev.",
-      "website": "stk-hamburg.de",
+      "company": "stk / g-neriq",
+      "position": "Frontend Developer",
+      "website": "http://stk-hamburg.de",
       "startDate": "2020-12",
       "endDate": "2030-01",
-      "summary": "Design and implement fresh web-based frontend for legacy software.",
-      "technologies": ["Typescript", "Vue", "Html", "CSS", "Lisp", "Vuex", "NodeJS"]
+      "summary": "Implementation of fresh web-based frontend for old lisp software.",
+      "technologies": ["Typescript", "JS", "Vue", "Html", "CSS", "Lisp", "Vuex", "NodeJS"]
     },
     {
       "company": "KLIWAS, Max-Planck-Institut",
@@ -104,6 +104,7 @@
   "education": [
     {
       "institution": "Helene-Lange-Gymnasium",
+      "thesis": "LKs: Mathe/Physik",
       "studyType": "Abitur",
       "startDate": "1995",
       "endDate": "2005",
@@ -111,7 +112,7 @@
     },
     {
       "institution": "Uni Hamburg",
-      "area": "Oceanography",
+      "area": "Physical Oceanography",
       "studyType": "B.Sc.",
       "minor": "Meteorology",
       "startDate": "2008",
@@ -143,7 +144,6 @@
     {
       "institution": "University of Hawai’i at Manoa",
       "area": "Exchange Semester",
-      "minor": "Physics",
       "startDate": "2012-09",
       "endDate": "2013-02"
     }
@@ -167,7 +167,7 @@
     },
     {
       "what": "Sudoku Solver",
-      "summary": "Wrote a Sudoku Solver",
+      "summary": "Wrote a Sudoku Solver. (Will port it the new site soon!)",
       "link": "https://nikoop.de/sudokusolver",
       "startDate": "2020-10-18",
       "endDate": "2020-10-20",
@@ -181,7 +181,7 @@
       "technologies": ["Java", "Swing"]
     },
     {
-      "what": "Creating this webpage",
+      "what": "Creating my first webpage",
       "summary": "...learning web dev...",
       "startDate": "2020-10-07",
       "endDate": "2020-10-14",
@@ -192,6 +192,18 @@
         "React",
         "GraphQL",
         "Gatsby"
+      ]
+    },
+    {
+      "what": "Creating this 2nd webpage",
+      "summary": "...learning web dev...",
+      "startDate": "2021-01",
+      "endDate": "2030-01-01",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "Typescript",
+        "Vue"
       ]
     },
     {
@@ -223,84 +235,87 @@
       "platform": "Udemy"
     },    
     {
-      "name": "Getting started with JavaScript, V2",
-      "startDate": "2020-10-18",
-      "endDate": "2020-10-18",
-      "technologies": ["JS"],
-      "link": "https://frontendmasters.com/courses/getting-started-javascript-v2/wrapping-up/",
+      "name": "Many of their courses!",
+      "startDate": "2020-08",
+      "endDate": "2020-12",
+      "technologies": ["JS","Typescript","CSS","Html","Http","Vuex","Nuxt"],
+      "link": "https://frontendmasters.com/courses/",
       "platform": "Frontend Masters"
     },    
     {
-      "name": "Intro to Web Dev V2",
-      "startDate": "2020-10-15",
-      "endDate": "2020-10-16",
-      "technologies": ["JS", "Html", "CSS", "AJAX", "Node.js", "git"],
-      "link": "https://frontendmasters.com/courses/web-development-v2/",
-      "platform": "Frontend Masters"
-    },
-    {
       "name": "Scientific Computing I",
       "startDate": "2012",
+      "endDate": "2012",
       "technologies": ["FORTRAN", "OpenMp/MPI"],
       "platform": "Uni Hamburg"
     },
     {
       "name": "Scientific Computing IV",
       "startDate": "2013",
+      "endDate": "2013",
       "technologies": ["C", "OpenMp/MPI"],
       "platform": "Uni Hamburg"
     },
     {
       "name": "Software Development I",
       "startDate": "2014",
+      "endDate": "2014",
       "technologies": ["Java", "git"],
       "platform": "Uni Hamburg"
     },
     {
       "name": "Software Development II",
       "startDate": "2017",
+      "endDate": "2017",
       "technologies": ["Java", "git"],
       "platform": "Uni Hamburg"
     },    
     {
       "name": "Databases",
       "startDate": "2017",
+      "endDate": "2017",
       "technologies": ["SQL"],
       "platform": "Uni Hamburg"
     },    
     {
       "name": "Algorithms and Data-Structures",
       "startDate": "2017",
+      "endDate": "2017",
       "technologies": [],
       "platform": "Uni Hamburg"
     },    
     {
       "name": "Ocean Modelling",
       "startDate": "2010",
+      "endDate": "2010",
       "technologies": ["FORTRAN","Python"],
       "platform": "Uni Hamburg"
     },    
     {
       "name": "numerical tracer transport simulation",
       "startDate": "2010",
+      "endDate": "2010",
       "technologies": ["Matlab"],
       "platform": "Uni Hamburg"
     },    
     {
       "name": "open source scripting for geoscientific data analysis",
       "startDate": "2009",
+      "endDate": "2009",
       "technologies": ["Python"],
       "platform": "Uni Hamburg"
     },    
     {
       "name": "numerical methods in geo-sciences",
-      "startDate": "2009",
+      "startDate": "2010",
+      "endDate": "2010",
       "technologies": ["FORTRAN", "Linux"],
       "platform": "Uni Hamburg"
-    },    
+    },
     {
       "name": "data handling and programming in geo-sciences",
       "startDate": "2009",
+      "endDate": "2009",
       "technologies": ["Matlab","Python","Linux","Bash"],
       "platform": "Uni Hamburg"
     }
