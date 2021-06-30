@@ -182,7 +182,7 @@ export default defineComponent({
   justify-content: center;
   width: 700px;
   margin-bottom: 10px;
-  animation: cellBounce 0.6s;
+  animation: cellBounce 0.5s;
   /*animation-name: cellBounce;*/
   /*animation-duration: 0.6s;*/
   animation-timing-function: ease;
@@ -216,13 +216,13 @@ export default defineComponent({
 @keyframes cellBounce {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100px);
-    transform: translateX(-100px);
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
   }
   60% {
     opacity: 1;
-    -webkit-transform: translateX(20px);
-    transform: translateX(20px);
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
   }
   100% {
     -webkit-transform: translateX(0);
@@ -270,7 +270,7 @@ export default defineComponent({
     0 3px 0 4px rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
     0 3px 0 4px rgba(0, 0, 0, 0.05);
-  animation: iconPlopp 0.6s;
+  animation: iconPlopp 0.5s;
 }
 
 .iconLargeScreen {
@@ -378,6 +378,13 @@ export default defineComponent({
   .texts {
     padding-left: 5px;
     padding-right: 5px;
+  }
+
+  .dateSmallScreen {
+    font-size: xx-small;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding-bottom: 9px;
   }
 }
 </style>

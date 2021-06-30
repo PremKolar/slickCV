@@ -41,8 +41,8 @@ export default defineComponent({
 
     let options = {
       root: document.querySelector("#scrollArea"),
-      rootMargin: "5px",
-      threshold: 0.2,
+      rootMargin: "0px",
+      threshold: 0,
     };
 
     let observer = new IntersectionObserver(callback, options);

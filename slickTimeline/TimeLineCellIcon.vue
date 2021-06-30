@@ -23,13 +23,13 @@ export default defineComponent({
 @keyframes cellBounce {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100px);
-    transform: translateX(-100px);
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
   }
   60% {
     opacity: 1;
-    -webkit-transform: translateX(20px);
-    transform: translateX(20px);
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
   }
   100% {
     -webkit-transform: translateX(0);
