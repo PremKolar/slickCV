@@ -168,23 +168,18 @@ export default defineComponent({
 </script>
 <style scoped>
 .rootElem {
-  /*height: auto !important;*/
   min-height: 200px;
-  /*height: 250px;*/
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
 }
 
 .shell {
-  /*height: 100%;*/
   display: flex;
   justify-content: center;
   width: 700px;
   margin-bottom: 10px;
-  animation: cellBounce 0.5s;
-  /*animation-name: cellBounce;*/
-  /*animation-duration: 0.6s;*/
+  animation: fadeIn 1s;
   animation-timing-function: ease;
   animation-delay: 0s;
   animation-iteration-count: 1;
@@ -193,7 +188,7 @@ export default defineComponent({
   animation-play-state: running;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  /*position: relative;*/
+  border-radius: 5px;
 }
 
 .link {
@@ -202,15 +197,57 @@ export default defineComponent({
 
 .cell {
   background-color: #e5fcc2;
-  border-radius: 0;
+  border-radius: inherit;
   width: 100%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*margin-top: auto;*/
-  /*margin-bottom: auto;*/
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes cellBounce {
@@ -254,23 +291,7 @@ export default defineComponent({
 }
 
 .nugget:hover {
-  /*padding: 5px 5px 0 5px;*/
   color: black;
-}
-
-.iconInnerCase {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
-    0 3px 0 4px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08),
-    0 3px 0 4px rgba(0, 0, 0, 0.05);
-  animation: iconPlopp 0.5s;
 }
 
 .iconLargeScreen {
@@ -332,7 +353,6 @@ export default defineComponent({
   padding-left: -5em;
   padding-right: -5em;
   position: absolute;
-  /*color: #2c3e50;*/
   left: -57px;
 }
 
