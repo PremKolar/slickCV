@@ -53,9 +53,10 @@
           </li>
         </ul>
         <div class="technoBox">
-          <div class="nugget" v-for="techno in item.nuggets" :key="techno">
-            {{ techno }}
-          </div>
+
+          <Nugget v-for="techno in item.nuggets" :key="techno" :nugget="techno">
+          </Nugget>
+
         </div>
       </div>
     </div>
@@ -66,10 +67,11 @@
 import { computed, defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { TimeLineItem } from "@/components/slickCV/slickTimeline/types";
 import TimeLineCellIcon from "@/components/slickCV/slickTimeline/TimeLineCellIcon.vue";
+import Nugget from "@/components/slickCV/Nugget.vue";
 
 export default defineComponent({
   name: "TimeLineCell",
-  components: { TimeLineCellIcon },
+  components: { TimeLineCellIcon, Nugget },
   props: {
     indexRatio: { type: Number, required: true },
     item: { type: Object as () => TimeLineItem, required: true },
@@ -274,25 +276,6 @@ export default defineComponent({
   padding-bottom: 2em;
 }
 
-.nugget {
-  text-transform: lowercase;
-  background-color: #8dd9b5;
-  border-radius: 0.125rem;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  --text-opacity: 1;
-  color: #f7fafc;
-  color: rgba(247, 250, 252, var(--text-opacity));
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.nugget:hover {
-  color: black;
-}
 
 .iconLargeScreen {
   left: 50%;
