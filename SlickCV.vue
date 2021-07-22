@@ -29,7 +29,7 @@ import { TimeLineItem } from "@/components/slickCV/slickTimeline/types";
 import Nugget from "@/components/slickCV/Nugget.vue";
 
 @Options({
-  components: { SlickTimeline, Nugget },
+  components: { SlickTimeline, Nugget }
 })
 export default class SlickCV extends Vue {
   @Prop({ required: true }) resume!: Resume;
@@ -97,6 +97,7 @@ export default class SlickCV extends Vue {
 .technotitle {
   text-align: center;
 }
+
 .allTechnosBox {
   max-width: min(90vw, calc(700px - 1em));
   min-height: 100px;
@@ -113,6 +114,7 @@ export default class SlickCV extends Vue {
 .nugget {
   cursor: pointer;
 }
+
 .frame {
   display: flex;
   flex-direction: column;
