@@ -12,7 +12,10 @@
       >
       </Nugget>
     </div>
-    <SlickTimeline :items="sortedFilteredTimelineItems"></SlickTimeline>
+    <SlickTimeline
+      ref="timeline"
+      :items="sortedFilteredTimelineItems"
+    ></SlickTimeline>
   </div>
 </template>
 
@@ -49,7 +52,10 @@ export default class SlickCV extends Vue {
 
   technoClicked(tec: string) {
     this.technoSwitches[tec] = !this.technoSwitches[tec];
-    this.$forceUpdate();
+    // this.$forceUpdate();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.$refs.timeline.refresh();
   }
 
   get allTechnos() {
@@ -81,7 +87,7 @@ export default class SlickCV extends Vue {
     return res.sort((a, b) => -a.from.getTime() + b.from.getTime());
   }
 
-  private hasActiveTechno(tl: TimeLineItem):boolean {
+  private hasActiveTechno(tl: TimeLineItem): boolean {
     return tl.nuggets?.some((n) => this.isActive(n)) ?? false;
   }
 }

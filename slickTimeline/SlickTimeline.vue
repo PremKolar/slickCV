@@ -24,6 +24,16 @@ export default defineComponent({
   name: "SlickTimeline",
   components: { TimeLineCell },
   props: { items: { type: Object as () => TimeLineItem[], required: true } },
+  methods: {
+    refresh() {
+      console.log(this.show[0]);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      for (let i = 0; i < 6; i++) {
+        this.show[i] =true;
+      }
+    },
+  },
   setup(props) {
     const show = ref(Array(props.items.length).fill(false));
     const cells = ref([]);
@@ -60,7 +70,7 @@ export default defineComponent({
       cells.value = [];
     });
 
-    return { cells, show };
+    return { cells, show, callback };
   },
 });
 </script>
