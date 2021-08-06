@@ -1,16 +1,20 @@
 <template>
   <div class="frame">
-    <p class="technotitle">Filter</p>
-    <div class="allTechnosBox">
-      <Nugget
-        class="nugget"
-        v-for="techno in allTechnos"
-        :key="techno"
-        :nugget="techno"
-        :active="isActive(techno)"
-        @click="technoClicked(techno)"
-      >
-      </Nugget>
+
+    <div class="allTechnosBox" @mouseover="hoveringOnTechnoBox = true" @mouseleave="hoveringOnTechnoBox=false">
+      <p class="technotitle">{{ titleOfTechnoBox }}</p>
+      <div class="allTechnosBoxInside">
+        <Nugget
+          class="nugget"
+          v-for="techno in allTechnos"
+          :key="techno"
+          :nugget="techno"
+          :active="isActive(techno)"
+          @click.left="technoClicked(techno)"
+          @click.right="technoRightClicked(techno)"
+        >
+        </Nugget>
+      </div>
     </div>
     <SlickTimeline
       ref="timeline"
@@ -34,6 +38,7 @@ import Nugget from "@/components/slickCV/Nugget.vue";
 export default class SlickCV extends Vue {
   @Prop({ required: true }) resume!: Resume;
   private technoSwitches: Record<string, boolean> = {};
+  private hoveringOnTechnoBox = false;
 
   created() {
     this.allTechnos.forEach((t) => this.activateTechno(t));
@@ -58,10 +63,20 @@ export default class SlickCV extends Vue {
     this.$refs.timeline.refresh();
   }
 
+  technoRightClicked(tec: string) {
+    const isOn = this.technoSwitches[tec];
+    for (let technoSwitchesKey in this.technoSwitches) {
+      this.technoSwitches[technoSwitchesKey] = !isOn;
+    }
+    this.technoSwitches[tec] = isOn;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.$refs.timeline.refresh();
+  }
+
   get allTechnos() {
     const allNuggets: Set<string> = new Set<string>();
     this.sortedTimelineItems.forEach((tlitem) => {
-      console.log(tlitem);
       tlitem.nuggets?.forEach((nugget) => {
         allNuggets.add(nugget);
       });
@@ -69,8 +84,14 @@ export default class SlickCV extends Vue {
     return allNuggets;
   }
 
+  get titleOfTechnoBox(): string {
+    return this.hoveringOnTechnoBox ? "right click for single toggle!" : "Filters";
+  }
+
   get sortedFilteredTimelineItems(): TimeLineItem[] {
-    return this.sortedTimelineItems.filter((tl) => this.hasActiveTechno(tl));
+    let items = this.sortedTimelineItems.filter((tl) => this.hasActiveTechno(tl));
+    console.table(items);
+    return items;
   }
 
   get sortedTimelineItems(): TimeLineItem[] {
@@ -96,19 +117,23 @@ export default class SlickCV extends Vue {
 <style scoped>
 .technotitle {
   text-align: center;
+  /*background-color: var(--cardColor);*/
 }
 
 .allTechnosBox {
   max-width: min(90vw, calc(700px - 1em));
   min-height: 100px;
-  background: white;
+  background: var(--cardColor);
+  border-radius: 5px;
+  margin: 0 1em 60px 1em;
+}
+
+.allTechnosBoxInside {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0 1em 60px 1em;
   padding: 1em;
-  border-radius: 5px;
 }
 
 .nugget {

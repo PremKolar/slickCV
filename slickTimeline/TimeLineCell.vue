@@ -22,7 +22,6 @@
           <div
             class="dateSmallScreen"
             style="text-align: right"
-            :style="dateTextColorStyle"
           >
             {{ makeFromString() }}
           </div>
@@ -30,7 +29,6 @@
           <div
             class="dateSmallScreen"
             style="text-align: left"
-            :style="dateTextColorStyle"
           >
             {{ makeTillString() }}
           </div>
@@ -80,7 +78,7 @@ export default defineComponent({
 
   computed: {
     largeScreen(): boolean {
-      return this.width > 1000;
+      return this.width > 424242; // TODO using the small screen version for all screens for now.
     },
     hasLink(): boolean {
       return this.item.textLink?.length > 0 ?? false;
@@ -162,7 +160,6 @@ export default defineComponent({
     makeFromString: function (): string {
       const date = this.item.from;
       const dateStr = this.item.fromStr ?? "?";
-      console.log(dateStr);
       return this.makeDateString(dateStr, date);
     },
   },
@@ -198,7 +195,7 @@ export default defineComponent({
 }
 
 .cell {
-  background-color: #e5fcc2;
+  background-color: var(--cardColor);
   border-radius: inherit;
   width: 100%;
   display: flex;
@@ -340,10 +337,16 @@ export default defineComponent({
 }
 
 .dateSmallScreen {
+  /*background: var(--cardColor);*/
+  /*padding-left: 5px;*/
+  /*padding-right: 5px;*/
+  /*padding-top: 2px;*/
+  /*border-radius: 2px;*/
   font-size: smaller;
   margin-left: 3em;
   margin-right: 3em;
-  padding-bottom: 9px;
+  margin-bottom: -40px;
+  /*padding-bottom: 9px;*/
 }
 
 .dateTop {
@@ -364,7 +367,8 @@ export default defineComponent({
   align-self: center;
 }
 
-@media all and (max-width: 1000px) {
+
+@media all and (max-width: 4242px) {
   .shell {
     margin-bottom: 40px;
   }

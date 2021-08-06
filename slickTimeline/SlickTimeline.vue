@@ -7,7 +7,7 @@
           cells[i] = el;
         }
       "
-      :key="item.title"
+      :key="item.title + item.fromStr + item.text"
       :item="item"
       :show="show[i]"
       :id="i"
@@ -20,19 +20,21 @@
 import { defineComponent, onBeforeUpdate, onMounted, ref } from "vue";
 import { TimeLineItem } from "@/components/slickCV/slickTimeline/types";
 import TimeLineCell from "@/components/slickCV/slickTimeline/TimeLineCell.vue";
+
 export default defineComponent({
   name: "SlickTimeline",
   components: { TimeLineCell },
   props: { items: { type: Object as () => TimeLineItem[], required: true } },
   methods: {
     refresh() {
-      console.log(this.show[0]);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      for (let i = 0; i < 6; i++) {
-        this.show[i] =true;
+      for (let i = 0; i < this.show.length; i++) {
+        this.show[i] = false;
       }
-    },
+      for (let i = 0; i < 6; i++) {
+        this.show[i] = true;
+      }
+      // this.$forceUpdate;
+    }
   },
   setup(props) {
     const show = ref(Array(props.items.length).fill(false));
@@ -52,7 +54,7 @@ export default defineComponent({
     let options = {
       root: document.querySelector("#scrollArea"),
       rootMargin: "0px",
-      threshold: 0,
+      threshold: 0
     };
 
     let observer = new IntersectionObserver(callback, options);
@@ -71,7 +73,7 @@ export default defineComponent({
     });
 
     return { cells, show, callback };
-  },
+  }
 });
 </script>
 

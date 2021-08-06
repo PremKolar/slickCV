@@ -19,7 +19,7 @@ export default class Nugget extends Vue {
 <style scoped>
 .nugget {
   text-transform: lowercase;
-  background-color: #8dd9b5;
+  background-color: var(--highlightColor);
   border-radius: 0.125rem;
   padding: 0.25rem 0.75rem;
   font-size: 0.875rem;

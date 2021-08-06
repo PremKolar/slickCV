@@ -11,7 +11,7 @@ import { TimeLineItem } from "@/components/slickCV/slickTimeline/types";
 const resumeItemToTimeLineItem = (resume: ResumeItem): TimeLineItem => {
   const res = {} as TimeLineItem;
   res.items = resume.highlights;
-  res.nuggets = resume.technologies;
+  res.nuggets = resume.technologies?.length > 0 ? resume.technologies : ['n/a'] ??  ['n/a'];
   res.from = new Date(resume.startDate);
   res.till = new Date(resume.endDate);
   res.fromStr = resume.startDate;
@@ -22,7 +22,7 @@ const resumeItemToTimeLineItem = (resume: ResumeItem): TimeLineItem => {
 const workItemToTimeLineItem = (work: WorkItem): TimeLineItem => {
   const res: TimeLineItem = resumeItemToTimeLineItem(work);
   res.icon = "briefcase";
-  res.color = "#594F4F";
+  res.color = "#acc172";
   res.title = work.position;
   res.subtitle = work.company;
   res.text = work.summary;
@@ -34,7 +34,8 @@ const eduItemToTimeLineItem = (edu: EduItem): TimeLineItem => {
   const res: TimeLineItem = resumeItemToTimeLineItem(edu);
 
   res.icon = "university";
-  res.color = "#547980";
+  // res.color = "#547980";
+  res.color = "#67a77a";
   res.text = edu.thesis;
   // res.text2 = edu.grade ? "Grade: " + edu.grade : edu.grade;
   res.textLink = edu.thesisLink;
@@ -55,7 +56,8 @@ const eduItemToTimeLineItem = (edu: EduItem): TimeLineItem => {
 const classItemToTimeLineItem = (clas: ClassItem): TimeLineItem => {
   const res: TimeLineItem = resumeItemToTimeLineItem(clas);
   res.icon = "book-reader";
-  res.color = "#45ADA8";
+  // res.color = "#45ADA8";
+  res.color = "#36897e";
   res.title = "Course";
   res.subtitle = clas.platform;
   res.text = clas.name;
@@ -65,7 +67,8 @@ const classItemToTimeLineItem = (clas: ClassItem): TimeLineItem => {
 const projectItemToTimeLineItem = (proj: ProjectItem): TimeLineItem => {
   const res: TimeLineItem = resumeItemToTimeLineItem(proj);
   res.icon = "hamsa";
-  res.color = "#9DE0AD";
+  // res.color = "#9DE0AD";
+  res.color = "#286873";
   res.title = proj.what;
   res.textLink = proj.link;
   res.text = proj.summary;
@@ -75,7 +78,7 @@ const projectItemToTimeLineItem = (proj: ProjectItem): TimeLineItem => {
 export const trafoFunctions: {
   [index: string]: any;
 } = {
-  classes: classItemToTimeLineItem,
+  courses: classItemToTimeLineItem,
   education: eduItemToTimeLineItem,
   work: workItemToTimeLineItem,
   projects: projectItemToTimeLineItem,

@@ -2,7 +2,7 @@ export interface Resume {
   work: WorkItem[];
   education: EduItem[];
   projects: ProjectItem[];
-  classes: ClassItem[];
+  courses: ClassItem[];
 }
 
 export interface ResumeItem {
