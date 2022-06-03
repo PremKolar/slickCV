@@ -1,15 +1,15 @@
 <template>
   <div class="frame">
-
-    <div class="allTechnosBox" @mouseover="hoveringOnTechnoBox = true" @mouseleave="hoveringOnTechnoBox=false">
+    <div class="allTechnosBox" @mouseleave="hoveringOnTechnoBox=false" @mouseover="hoveringOnTechnoBox = true">
       <p class="technotitle">{{ titleOfTechnoBox }}</p>
       <div class="allTechnosBoxInside">
         <Nugget
-          class="nugget"
           v-for="techno in allTechnos"
           :key="techno"
-          :nugget="techno"
           :active="isActive(techno)"
+          :nugget="techno"
+          class="nugget"
+          @contextmenu="contextMenuCB"
           @click.left="technoClicked(techno)"
           @click.right="technoRightClicked(techno)"
         >
@@ -39,40 +39,6 @@ export default class SlickCV extends Vue {
   @Prop({ required: true }) resume!: Resume;
   private technoSwitches: Record<string, boolean> = {};
   private hoveringOnTechnoBox = false;
-
-  created() {
-    this.allTechnos.forEach((t) => this.activateTechno(t));
-  }
-
-  isActive(tec: string): boolean {
-    // if (this.technoSwitches[tec]==undefined){
-    //   this.activateTechno(tec);
-    // }
-    return this.technoSwitches[tec];
-  }
-
-  private activateTechno(tec: string) {
-    this.technoSwitches[tec] = true;
-  }
-
-  technoClicked(tec: string) {
-    this.technoSwitches[tec] = !this.technoSwitches[tec];
-    // this.$forceUpdate();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this.$refs.timeline.refresh();
-  }
-
-  technoRightClicked(tec: string) {
-    const isOn = this.technoSwitches[tec];
-    for (let technoSwitchesKey in this.technoSwitches) {
-      this.technoSwitches[technoSwitchesKey] = !isOn;
-    }
-    this.technoSwitches[tec] = isOn;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this.$refs.timeline.refresh();
-  }
 
   get allTechnos() {
     const allNuggets: Set<string> = new Set<string>();
@@ -106,6 +72,45 @@ export default class SlickCV extends Vue {
       }
     }
     return res.sort((a, b) => -a.from.getTime() + b.from.getTime());
+  }
+
+  created() {
+    this.allTechnos.forEach((t) => this.activateTechno(t));
+  }
+
+  isActive(tec: string): boolean {
+    // if (this.technoSwitches[tec]==undefined){
+    //   this.activateTechno(tec);
+    // }
+    return this.technoSwitches[tec];
+  }
+
+  technoClicked(tec: string) {
+    this.technoSwitches[tec] = !this.technoSwitches[tec];
+    // this.$forceUpdate();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.$refs.timeline.refresh();
+  }
+
+  contextMenuCB(e: any) {
+    console.log(typeof e);
+    e.preventDefault();
+  }
+
+  technoRightClicked(tec: string) {
+    const isOn = this.technoSwitches[tec];
+    for (let technoSwitchesKey in this.technoSwitches) {
+      this.technoSwitches[technoSwitchesKey] = !isOn;
+    }
+    this.technoSwitches[tec] = isOn;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.$refs.timeline.refresh();
+  }
+
+  private activateTechno(tec: string) {
+    this.technoSwitches[tec] = true;
   }
 
   private hasActiveTechno(tl: TimeLineItem): boolean {
